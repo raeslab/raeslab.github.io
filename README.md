@@ -1,3 +1,5 @@
+[![pages-build-deployment](https://github.com/raeslab/raeslab.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/raeslab/raeslab.github.io/actions/workflows/pages/pages-build-deployment)
+
 # code.raeslab.org
 
 Placeholder landing page for **code.raeslab.org**: an overview of the Raes Lab companion websites and a link to
