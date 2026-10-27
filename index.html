@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raes Lab – Code &amp; Data</title>
+<meta name="description" content="Companion websites, supplementary data and code accompanying publications of the Raes Lab (VIB–KU Leuven Center for Microbiology).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232f5d8a'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial' font-weight='800' font-size='26' fill='%23fff'%3ERL%3C/text%3E%3C/svg%3E">
+<style>
+:root {
+  --accent: #2f5d8a;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eef1f5;
+  --text: #1c2430;
+  --muted: #5b6676;
+  --border: #dde2e8;
+  --shadow: 0 1px 2px rgba(16,24,40,.06), 0 1px 3px rgba(16,24,40,.08);
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #6fa3d6;
+    --bg: #11151b;
+    --surface: #181d25;
+    --surface-2: #202733;
+    --text: #e6e9ee;
+    --muted: #9aa5b4;
+    --border: #2c3442;
+    --shadow: 0 1px 2px rgba(0,0,0,.4);
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.6 var(--sans); }
+a { color: var(--accent); }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+header.top { background: var(--surface); border-bottom: 1px solid var(--border); box-shadow: var(--shadow); }
+header.top .wrap { display: flex; align-items: center; gap: 12px; padding-top: 12px; padding-bottom: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
+.brand svg { width: 38px; height: 38px; flex: none; }
+.brand b { display: block; line-height: 1.15; }
+.brand small { color: var(--muted); font-size: .78rem; }
+header.top nav { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border-radius: 8px; border: 1px solid var(--border);
+       background: var(--surface); color: var(--text); text-decoration: none; font-size: .9rem; white-space: nowrap; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+.hero { padding: 40px 0 8px; }
+.hero h1 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); line-height: 1.2; margin: 0 0 10px; }
+.hero p { color: var(--muted); max-width: 720px; margin: 0 0 18px; }
+
+h2.group { font-size: 1.05rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 36px 0 12px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; box-shadow: var(--shadow);
+        padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+.card .meta { font-size: .78rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: .05em; }
+.card h3 { margin: 0; font-size: 1.02rem; line-height: 1.35; }
+.card .authors { margin: 0; color: var(--muted); font-size: .88rem; }
+.card .desc { margin: 0; font-size: .92rem; }
+.card .links { margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+.card .links .btn { font-size: .82rem; padding: 5px 10px; }
+
+.github-box { margin: 40px 0; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px;
+              display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; box-shadow: var(--shadow); }
+.github-box p { margin: 0; color: var(--muted); max-width: 640px; }
+.github-box strong { color: var(--text); }
+
+footer { border-top: 1px solid var(--border); background: var(--surface); color: var(--muted); font-size: .85rem; }
+footer .wrap { padding-top: 18px; padding-bottom: 18px; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+footer a { color: var(--muted); }
+@media (max-width: 640px) { header.top .wrap { flex-wrap: wrap; } header.top nav { margin-left: 0; } }
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="./">
+    <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#2f5d8a"/>
+      <circle cx="52" cy="13" r="6" fill="#fff" fill-opacity=".28"/><circle cx="11" cy="53" r="4" fill="#fff" fill-opacity=".22"/>
+      <text x="32" y="42" text-anchor="middle" font-family="system-ui,Segoe UI,Arial,sans-serif" font-weight="800" font-size="26" fill="#fff">RL</text></svg>
+    <span><b>Raes Lab · Code &amp; Data</b><small>VIB–KU Leuven Center for Microbiology</small></span>
+  </a>
+  <nav>
+    <a class="btn" href="#projects">Projects</a>
+    <a class="btn primary" href="https://github.com/raeslab">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      github.com/raeslab</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Code, data and companion websites</h1>
+    <p>Supplementary data, interactive resources and analysis code accompanying publications of the Raes Lab.
+       Each project below has its own companion website and GitHub repository. More software and code is available on our GitHub organisation.</p>
+    <a class="btn primary" href="https://github.com/raeslab">Browse all repositories on GitHub</a>
+  </section>
+
+  <div id="projects">
+
+  <h2 class="group">Gut microbiome cohorts</h2>
+  <div class="grid">
+    <article class="card">
+      <div class="meta">Science · 2016</div>
+      <h3>Population-level analysis of gut microbiome variation</h3>
+      <p class="authors">Falony G, Joossens M, Vieira-Silva S, Wang J, … Raes J</p>
+      <p class="desc">Flemish Gut Flora Project: supplementary figures and tables, genus- and OTU-level abundance tables.</p>
+      <div class="links">
+        <a class="btn primary" href="https://raeslab.github.io/FGFP-Gut-Microbiome-Variation/">Website</a>
+        <a class="btn" href="https://github.com/raeslab/FGFP-Gut-Microbiome-Variation">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1126/science.aad3503">Paper</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="meta">Nature Microbiology · 2020</div>
+      <h3>Genome-wide associations of human gut microbiome variation and implications for causal inference analyses</h3>
+      <p class="authors">Hughes DA, Bacigalupe R, Wang J, … Timpson NJ, Raes J</p>
+      <p class="desc">FGFP microbiome GWAS: figures, supplementary tables and information, replication code and the FGFP data access procedure.</p>
+      <div class="links">
+        <a class="btn primary" href="https://raeslab.github.io/fgfp-gwas/">Website</a>
+        <a class="btn" href="https://github.com/raeslab/fgfp-gwas">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1038/s41564-020-0743-8">Paper</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="meta">Gut · 2016</div>
+      <h3>Stool consistency is strongly associated with gut microbiota richness and composition, enterotypes and bacterial growth rates</h3>
+      <p class="authors">Vandeputte D, Falony G, Vieira-Silva S, Tito RY, Joossens M, Raes J</p>
+      <p class="desc">16S rRNA sequencing data, QIIME OTU tables, phylogenetic trees and metadata.</p>
+      <div class="links">
+        <a class="btn primary" href="https://raeslab.github.io/Stool-Consistency-Gut-Microbiota/">Website</a>
+        <a class="btn" href="https://github.com/raeslab/Stool-Consistency-Gut-Microbiota">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1136/gutjnl-2015-309618">Paper</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="meta">The ISME Journal · 2012</div>
+      <h3>The human small intestinal microbiota is driven by rapid uptake and conversion of simple carbohydrates</h3>
+      <p class="authors">Zoetendal EG, Raes J, van den Bogert B, … Kleerebezem M</p>
+      <p class="desc">Small-intestinal metagenome and metatranscriptome assemblies: contigs, genes, proteins and reads.</p>
+      <div class="links">
+        <a class="btn primary" href="https://raeslab.github.io/Small-Intestinal-Microbiota/">Website</a>
+        <a class="btn" href="https://github.com/raeslab/Small-Intestinal-Microbiota">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1038/ismej.2011.212">Paper</a>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="group">Quantitative microbiome profiling</h2>
+  <div class="grid">
+    <article class="card">
+      <div class="meta">Nature · 2020</div>
+      <h3>Statin therapy is associated with lower prevalence of gut microbiota dysbiosis</h3>
+      <p class="authors">Vieira-Silva S, Falony G, Belda E, … MetaCardis Consortium, Clément K, Raes J</p>
+      <p class="desc">QMP genus and gut metabolic module (GMM) abundance matrices of the MetaCardis BMIS dataset.</p>
+      <div class="links">
+        <a class="btn primary" href="https://raeslab.github.io/BMIS/">Website</a>
+        <a class="btn" href="https://github.com/raeslab/BMIS">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1038/s41586-020-2269-x">Paper</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="meta">Nature Microbiology · 2019</div>
+      <h3>Quantitative microbiome profiling disentangles inflammation- and bile duct obstruction-associated microbiota alterations across PSC/IBD diagnoses</h3>
+      <p class="authors">Vieira-Silva S, Sabino J, Valles-Colomer M, … Vermeire S, Raes J</p>
+      <p class="desc">Quantitative microbiome profiling (QMP) matrix of the PSC/IBD study dataset.</p>
+      <div class="links">
+        <a class="btn primary" href="https://raeslab.github.io/QMP-PSC-IBD/">Website</a>
+        <a class="btn" href="https://github.com/raeslab/QMP-PSC-IBD">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1038/s41564-019-0483-9">Paper</a>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="group">Functional module databases</h2>
+  <div class="grid">
+    <article class="card">
+      <div class="meta">Nature Microbiology · 2016</div>
+      <h3>Gut Metabolic Modules (GMMs)</h3>
+      <p class="authors">Vieira-Silva S, Falony G, Darzi Y, … Raes J · <i>Species–function relationships shape ecological properties of the human gut microbiome</i></p>
+      <p class="desc">Manually curated gut-specific metabolic modules with interactive metabolic maps.</p>
+      <div class="links">
+        <a class="btn primary" href="https://raeslab.github.io/GMMs/">Website</a>
+        <a class="btn" href="https://raeslab.github.io/GMMs/map/">Metabolic maps</a>
+        <a class="btn" href="https://github.com/raeslab/GMMs">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1038/nmicrobiol.2016.88">Paper</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="meta">Nature Microbiology · 2019</div>
+      <h3>Gut-Brain Modules (GBMs)</h3>
+      <p class="authors">Valles-Colomer M, Falony G, Darzi Y, … Vieira-Silva S, Raes J · <i>The neuroactive potential of the human gut microbiota in quality of life and depression</i></p>
+      <p class="desc">Manually curated modules for neuroactive compound production and degradation by gut microbes.</p>
+      <div class="links">
+        <a class="btn primary" href="https://raeslab.github.io/GBMs/">Website</a>
+        <a class="btn" href="https://github.com/raeslab/GBMs">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1038/s41564-018-0337-x">Paper</a>
+      </div>
+    </article>
+  </div>
+
+  <h2 class="group">Ocean microbiome (Tara Oceans)</h2>
+  <div class="grid">
+    <article class="card">
+      <div class="meta">Science · 2015</div>
+      <h3>Determinants of community structure in the global plankton interactome</h3>
+      <p class="authors">Lima-Mendez G, Faust K, Henry N, … Bowler C, de Vargas C, Raes J</p>
+      <p class="desc">Supplementary tables and figures, the global plankton interaction network and an interactive network viewer.</p>
+      <div class="links">
+        <a class="btn primary" href="https://github.com/raeslab/Tara-Oceans-Plankton-Interactome">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1126/science.1262073">Paper</a>
+      </div>
+    </article>
+    <article class="card">
+      <div class="meta">Nature · 2016</div>
+      <h3>Plankton networks driving carbon export in the oligotrophic ocean</h3>
+      <p class="authors">Guidi L, Chaffron S, Bittner L, Eveillard D, … Bowler C, Gorsky G</p>
+      <p class="desc">Supplementary tables, normalized abundance matrices and the carbon-export community network viewer.</p>
+      <div class="links">
+        <a class="btn primary" href="https://github.com/raeslab/Tara-Oceans-Plankton-Networks">GitHub</a>
+        <a class="btn" href="https://doi.org/10.1038/nature16942">Paper</a>
+      </div>
+    </article>
+  </div>
+
+  </div>
+
+  <section class="github-box">
+    <p><strong>More code on GitHub.</strong> Analysis code, R and Python packages and tools developed by the Raes Lab
+       (e.g. QMP, omixer-rpm, lorepy, dyspyosis) are available on our GitHub organisation.</p>
+    <a class="btn primary" href="https://github.com/raeslab">github.com/raeslab</a>
+  </section>
+</main>
+
+<footer><div class="wrap">
+  <span>Raes Lab · VIB–KU Leuven Center for Microbiology · Rega Institute, KU Leuven</span>
+  <a href="https://github.com/raeslab">github.com/raeslab</a>
+</div></footer>
+
+</body>
+</html>
